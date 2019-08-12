@@ -1,0 +1,6 @@
+@font-face {
+font-family: 'GE Inspira Regular';
+font-style: normal;
+font-weight: normal;
+src: local('GE Inspira Regular'), url('../fonts/ge-inspira/Nebula.woff') format('woff');
+}
