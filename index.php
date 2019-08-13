@@ -64,11 +64,7 @@
                             
                         </li>
                        
-                        <li class="has-sub">
-                            <a class="js-arrow" href="generate.php">
-                                <i class="fas fa-copy"></i>Generate QBR Report</a>
-                           
-                        </li>
+                        
                       
                     </ul>
                 </div>
@@ -92,11 +88,7 @@
                            
                         </li>
                         
-                        <li class="has-sub">
-                            <a class="js-arrow" href="generate.php">
-                                <i class="fas fa-copy"></i>Generate QBR Report</a>
-                            
-                        </li>
+                        
                         
                     </ul>
                 </nav>
@@ -238,28 +230,106 @@
                             </div>
                         </div>
 
+
                         <hr>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <h3 align="center" class="alert alert-info">Technical Contact</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Name" class="form-control"/><br>
+                                        <input type="text" placeholder="Title" class="form-control"/><br>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Email" class="form-control"/><br>
+                                        <input type="text" placeholder="Info" class="form-control"/><br>
+                                    </div>
+                                </div>
+                                
+                                
+                                   
+                            </div>
+
+                            <div class="col-md-6">
+                                <h3 align="center" class="alert alert-info">Commercial Contact</h3>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" required placeholder="Name" class="form-control"/><br>
+                                        <input type="text" required placeholder="Title" class="form-control"/><br>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" required placeholder="Email" class="form-control"/><br>
+                                        <input type="text" required placeholder="Info" class="form-control"/><br>
+                                    </div>
+                                </div>
+                                   
+                            </div>
+                        </div>
+
+
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info">Your GE Install Base</h3>
 
                                    
                             </div>
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                            <label for="comment">GE Recommendations:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
                         </div>
 
 
                         <hr>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info">Service Delivery - Corrective Jobs</h3>
 
                                    
                             </div>
+
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
                         </div>
                       
                          <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
+
+                        <hr>
 
                           <div class="row">
                             <div class="col-md-12">
@@ -267,13 +337,31 @@
 
                                     
                             </div>
+
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
                         </div>
 
                         <hr>
 
 
                         <div class="row">
-                            <div class="table-responsive m-b-40">
+                            <div class="col-md-11">
+                                <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
@@ -304,20 +392,48 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                        
+
+                        <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
                         </div>
 
+                        </div>
 
-                        <hr>
+                        
 
-                          <div class="row">
-                            <div class="col-md-12">
+                  
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
+                        <hr>   
+
+                        <div class="row">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info"> Technical Assessment</h3>
 
                                     
                             </div>
+
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
+                            
                         </div>
 
                         <hr>
+
+                        
 
 
                         <div class="row">
@@ -349,8 +465,19 @@
 
                         <hr>
 
-                          <div class="row" align="center">
-                            <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
+                        
+                        <hr>
+
+                        <div class="row" align="center">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info">Service Delivery - Planned Jobs</h3>
 
                                 <hr>
@@ -358,31 +485,89 @@
                                 <img align="center" src="images/Asian.png" class="img-responsive"/>
                                     
                             </div>
+
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
 
+                        <hr>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info"> FMI</h3>
 
                                     
                             </div>
-                        </div>
 
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3 align="center" class="alert alert-info"> Others</h3>
-
-                                    
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
                             </div>
                         </div>
 
                         <hr>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
 
+                            <div class="col-md-6">
+                            <label for="comment">GE Recommendations:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h3 align="center" class="alert alert-info"> Others</h3>
+
+                                    
+                            </div>
+
+                            <div class="col-md-1">
+                                <label>Include</label>
+                                <input type="checkbox" class="form-control" name="include1" />
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <label for="comment">Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control">
+                            
+                            </textarea>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12" align="center">
+                                <a href="generate.php" class="btn btn-success btn-lg">GENERATE QBR REPORT</a>
+                                <a href="generate.php" class="btn btn-danger btn-lg">RESET</a>
+                            </div>
+                        </div>
 
                         
                         <div class="row">
