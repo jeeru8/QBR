@@ -5,9 +5,8 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="description" content="GE">
+
 
     <!-- Title Page-->
     <title>QBR</title>
@@ -32,6 +31,34 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <style type="text/css">
+        html, body {
+        padding-top: 20px;
+    }
+
+    [data-role="dynamic-fields"] > .form-inline + .form-inline {
+        margin-top: 0.5em;
+    }
+
+    [data-role="dynamic-fields"] > .form-inline [data-role="add"] {
+        display: none;
+    }
+
+    [data-role="dynamic-fields"] > .form-inline:last-child [data-role="add"] {
+        display: inline-block;
+    }
+
+    [data-role="dynamic-fields"] > .form-inline:last-child [data-role="remove"] {
+        display: none;
+    }
+        </style>
+
+
+
+
+ 
+
 
  
 
@@ -218,11 +245,11 @@
                             <div class="col-md-6">
                                 <h3 align="center" class="alert alert-info">Customer Information</h3>
 
-                                    <h5> <b>Customer Name:</b> &nbsp;ASIAN HOSPITAL AND MEDICAL CENTER</h5>
+                                    <h5> <b>Customer Name:</b> &nbsp; <?php $GET['customer_name'];?> </h5>
                                     <br>
-                                    <h5> Country of Operation: &nbsp;Philippines</h5>
+                                    <h5> Country of Operation: &nbsp;<?php $GET['country'];?></h5>
                                     <br>
-                                    <h5> Quarter in Review: &nbsp;<br> <?php echo $_REQUEST['date1'];?> - <?php echo $_REQUEST['date2'];?></h5>
+                                    <h5> Quarter in Review: &nbsp;<br> <?php echo $_REQUEST['date1'];?> to <?php echo $_REQUEST['date2'];?></h5>
                             </div>
 
                             <div class="col-md-6" align="center">
@@ -232,19 +259,19 @@
 
 
                         <hr>
-
+                        <form action="GENERATE/index2.php" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <h3 align="center" class="alert alert-info">Technical Contact</h3>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" placeholder="Name" class="form-control"/><br>
-                                        <input type="text" placeholder="Title" class="form-control"/><br>
+                                        <input type="text" placeholder="Name" name="tech_name" class="form-control"/><br>
+                                        <input type="text" placeholder="Title" name="tech_title" class="form-control"/><br>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <input type="text" placeholder="Email" class="form-control"/><br>
-                                        <input type="text" placeholder="Info" class="form-control"/><br>
+                                        <input type="text" placeholder="Email" name="tech_email" class="form-control"/><br>
+                                        <input type="text" placeholder="Info" name="tech_info" class="form-control"/><br>
                                     </div>
                                 </div>
                                 
@@ -257,13 +284,13 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" required placeholder="Name" class="form-control"/><br>
-                                        <input type="text" required placeholder="Title" class="form-control"/><br>
+                                        <input type="text"  placeholder="Name" name="comm_name" class="form-control"/><br>
+                                        <input type="text"  placeholder="Title" name="comm_title" class="form-control"/><br>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <input type="text" required placeholder="Email" class="form-control"/><br>
-                                        <input type="text" required placeholder="Info" class="form-control"/><br>
+                                        <input type="text"  placeholder="Email" name="comm_email" class="form-control"/><br>
+                                        <input type="text"  placeholder="Info" name="comm_info" class="form-control"/><br>
                                     </div>
                                 </div>
                                    
@@ -278,25 +305,42 @@
                             <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info">Your GE Install Base</h3>
 
+                                <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>IB Entitlement by Modality</h3>
+                                        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h3>Connectivity by Modality</h3>
+                                        <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                                    </div>
+                                </div>
+
+
+                                
+
                                    
                             </div>
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include1" value="include1" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment1">
                             
                             </textarea>
                             </div>
 
                             <div class="col-md-6">
                             <label for="comment">GE Recommendations:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="ge1">
                             
                             </textarea>
                             </div>
@@ -314,16 +358,77 @@
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include2" value="include2" />
                             </div>
                         </div>
                       
                          <hr>
 
+                         <div class="row">
+                            <div class="col-md-6">
+                                <h3>Initial asset availability # of Jobs</h3>
+                                <div id="chartContainer3" style="height: 300px; width: 70%;"></div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="for"><b>Time To Repair</b></label>
+                                <h1><?php $GET['time'];?></h1>
+                                <br>
+                                <label class="for">Hours on Average<br>(Hard Down Jobs)</label>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="for"><b>Uptime</b></label>
+                                <h1><?php $GET['uptime'];?></h1>
+                                <br>
+                                <label class="for">Average Uptime across entitled systems</label>
+                            </div>
+                         </div>
+
+                         <hr>
+
+                         <div class="row">
+                            <div class="col-md-6">
+                                <label class="for">Remote Fix Rate</label>
+                                <br>
+                                <h1><?php $GET['remote'];?>%</h1>
+                            </div>
+
+                            <div class="col-md-6">
+                            <label class="for">Parts Changed</label>
+                                <br>
+                                <h1><?php $GET['parts'];?></h1>
+                            </div>
+                         </div>
+
+                         <hr>
+
+                         <div class="row">
+
+                            <div class="col-md-12">
+                                <h3 align="center">Time to Close Distribution - Hard Down Jobs</h3>
+                                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        
+                         </div>   
+                         
+                         <hr>
+
+                        
+                         <div class="row">
+
+                            <div class="col-md-12">
+                                <h3 align="center">Time to Close Distribution - All Jobs</h3>
+                                <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        
+                         </div>  
+                    
+
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment2">
                             
                             </textarea>
                             </div>
@@ -331,8 +436,8 @@
 
                         <hr>
 
-                          <div class="row">
-                            <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-11">
                                 <h3 align="center" class="alert alert-info">Equipment Level Coverage & Uptimes</h3>
 
                                     
@@ -340,27 +445,20 @@
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include3" value="include3" />
                             </div>
 
                         </div>
 
                         <hr>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                            <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
-                            
-                            </textarea>
-                            </div>
-                        </div>
+                        
 
                         <hr>
 
 
-                        <div class="row">
-                            <div class="col-md-11">
+                            <div class="row">
+                            <div class="col-md-12">
                                 <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
                                         <thead>
@@ -378,16 +476,16 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                               <td>GIB_S_MY_1553BD0004</td>  
-                                               <td>ARIA DXA SYSTEM</td>                 
-                                               <td>LUNAR</td>
-                                               <td>WARRANTY</td>
-                                                <td>12/31/2018</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>100</td>
+                                              
                                                 
                                             </tr>
+
+                                            <tr>
+                                               <?php echo $GET['equipment_data'];?>
+                                                
+                                            </tr>
+
+                                             
                                            
                                         </tbody>
                                     </table>
@@ -395,10 +493,7 @@
                             </div>
                         
 
-                        <div class="col-md-1">
-                                <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
-                        </div>
+                       
 
                         </div>
 
@@ -410,7 +505,7 @@
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment3">
                             
                             </textarea>
                             </div>
@@ -426,7 +521,7 @@
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include4" value="include4" />
                             </div>
                             
                         </div>
@@ -437,38 +532,46 @@
 
 
                         <div class="row">
-                            <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>System</th>
-                                                <th>Findings</th>
-                                                <th>Actions</th>
-                                                <th>Recommendations</th>
-                                                
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                               <td></td>
-                                               <td></td>
-                                               <td></td>
-                                               <td></td>
-                                                
-                                            </tr>
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                        </div>
+                            <div class="col-md-12" align="center">
+                                <div data-role="dynamic-fields">
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="field-name">System</label>
+                                            <input type="text" class="form-control" id="field-name" name="system" placeholder="System">
+                                        </div>
+                                        <span>---</span>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="field-value">Findings</label>
+                                            <input type="text" class="form-control" id="field-value" name="findings" placeholder="Findings">
+                                        </div>
+                                        <span>---</span>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="field-value">Actions</label>
+                                            <input type="text" class="form-control" id="field-value" name="actions" placeholder="Actions">
+                                        </div>
+                                        <span>---</span>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="field-value">Recommendations</label>
+                                            <input type="text" class="form-control" id="field-value" name="recommendations" placeholder="Recommendations">
+                                        </div>
+
+                                        <button class="btn btn-danger" data-role="remove">
+                                        <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button class="btn btn-primary" data-role="add">
+                                        <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>  <!-- /div.form-inline -->
+                                </div>  <!-- /div[data-role="dynamic-fields"] -->
+                            </div>  <!-- /div.col-md-12 -->
+                        </div>  <!-- /div.row -->
 
                         <hr>
 
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment4">
                             
                             </textarea>
                             </div>
@@ -481,21 +584,23 @@
                                 <h3 align="center" class="alert alert-info">Service Delivery - Planned Jobs</h3>
 
                                 <hr>
-
-                                <img align="center" src="images/Asian.png" class="img-responsive"/>
+                                <h5 align="center">Planned Maintenance (Completed & Upcoming)</h5>
+                                <br>
+                               
+                                <?php $GET['delivery'];?>
                                     
                             </div>
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include5" value="include5"/>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment5">
                             
                             </textarea>
                             </div>
@@ -512,7 +617,7 @@
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include6" value="include6"/>
                             </div>
                         </div>
 
@@ -521,14 +626,14 @@
                         <div class="row">
                             <div class="col-md-6">
                             <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="comment6">
                             
                             </textarea>
                             </div>
 
                             <div class="col-md-6">
                             <label for="comment">GE Recommendations:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <textarea rows="4" cols="50" class="form-control" name="ge2">
                             
                             </textarea>
                             </div>
@@ -538,23 +643,34 @@
 
                         <div class="row">
                             <div class="col-md-11">
-                                <h3 align="center" class="alert alert-info"> Others</h3>
+                                <h3 align="center" class="alert alert-info"> Other Information</h3>
 
                                     
                             </div>
 
                             <div class="col-md-1">
                                 <label>Include</label>
-                                <input type="checkbox" class="form-control" name="include1" />
+                                <input type="checkbox" class="form-control" name="include7" value="include7"/>
                             </div>
                         </div>
 
                         <hr>
+                        <div class="row">
+                            <div class="col-md-6" align="center">
+                                <label class="for">Upcoming Warrant Expiry<br>(Next 3 Months)</label>
+                                <h1><?php echo $GET['warranty'];?></h1>
+                            </div>
+
+                            <div class="col-md-6" align="center">
+                                <label class="for">Upcoming Contract Renewals<br>(Next 3 Months)</label>
+                                <h1>0</h1>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-6">
-                            <label for="comment">Comment:</label>
-                            <textarea rows="4" cols="50" class="form-control">
+                            <label for="comment">Closing Comment:</label>
+                            <textarea rows="4" cols="50" class="form-control" name="comment7">
                             
                             </textarea>
                             </div>
@@ -564,11 +680,14 @@
 
                         <div class="row">
                             <div class="col-md-12" align="center">
-                                <a href="generate.php" class="btn btn-success btn-lg">GENERATE QBR REPORT</a>
-                                <a href="generate.php" class="btn btn-danger btn-lg">RESET</a>
+                                <button type="submit" name="submit" class="btn btn-success btn-lg" onclick="myFunction()">
+                                GENERATE QBR REPORT
+                                </button>
+                                <a href="index2.php" class="btn btn-danger btn-lg">RESET</a>
+                                
                             </div>
                         </div>
-
+                        </form>
                         
                         <div class="row">
                             <div class="col-md-12">
@@ -585,6 +704,162 @@
         </div>
 
     </div>
+    <script>
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title:{
+            
+        },
+        axisY: {
+            
+        },
+       
+
+        data: [{
+            type: "bar",
+            showInLegend: true,
+            name: "Warranty",
+            color: "#00d5ff",
+            dataPoints: [
+                { y: 0, label: <?php $GET['data_get'];?>},
+                
+               
+            ]
+        },
+        {
+            type: "bar",
+            showInLegend: true,
+            name: "Contract",
+            color: "#0055e9",
+            dataPoints: [
+                { y: 1, label: <?php $GET['data_get'];?> },
+               
+            ]
+        }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("chartContainer2", {
+        animationEnabled: true,
+        title:{
+            
+        },
+        axisY: {
+            
+        },
+       
+
+        data: [{
+            type: "bar",
+            showInLegend: true,
+            name: "Y",
+            color: "#63666a",
+            dataPoints: [
+                { y: 1, label: <?php $GET['data_get'];?> },
+                
+               
+            ]
+        },
+        {
+            type: "bar",
+            showInLegend: true,
+            name: "N",
+            color: "#005eb8",
+            dataPoints: [
+                { y: 0, label: <?php $GET['data_get'];?> },
+              
+            ]
+        }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("chartContainer3", {
+        animationEnabled: true,
+        title:{
+            
+        },
+        axisY: {
+            
+        },
+       
+
+        data: [{
+            type: "bar",
+            showInLegend: true,
+            name: "Up",
+            color: "#009cda",
+            dataPoints: [
+                { y: 4, label: <?php $GET['data_get'];?> }
+               
+               
+            ]
+        },
+        {
+            type: "bar",
+            showInLegend: true,
+            name: "Partial",
+            color: "#d0cece",
+            dataPoints: [
+                { y: 1, label: <?php $GET['data_get'];?> },
+                
+            ]
+        },
+        {
+            type: "bar",
+            showInLegend: true,
+            name: "Down",
+            color: "#09244c",
+            dataPoints: [
+                { y: 0, label: <?php $GET['data_get'];?>},
+                
+            ]
+        }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("chartContainer4",
+    {
+      title:{
+        
+      },
+      data: [
+
+      {
+        dataPoints: [
+        { x: 1, y: 2, label: "0-1 Days",color: "#00b050"},
+        { x: 2, y: 1,  label: "1-15 Days" , color: "#ffc000" }
+        
+        ]
+      }
+      ]
+    });
+
+    chart.render();
+
+    var chart = new CanvasJS.Chart("chartContainer5",
+    {
+      title:{
+        
+      },
+      data: [
+
+      {
+        dataPoints: [
+        { x: 1, y: 2, label: "0-1 Days",color: "#00b050"},
+        { x: 2, y: 1,  label: "2-5 Days" , color: "#92d050" },
+        { x: 3, y: 1,  label: "11-15 Days" , color: "#ffc000" },
+        { x: 4, y: 1,  label: "16-30 Days" , color: "#ff9999" }
+        
+        ]
+      }
+      ]
+    });
+
+    chart.render();
+
+    
+    </script>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -609,6 +884,43 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            // Remove button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-inline [data-role="remove"]',
+                function(e) {
+                    e.preventDefault();
+                    $(this).closest('.form-inline').remove();
+                }
+            );
+            // Add button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-inline [data-role="add"]',
+                function(e) {
+                    e.preventDefault();
+                    var container = $(this).closest('[data-role="dynamic-fields"]');
+                    new_field_group = container.children().filter('.form-inline:first-child').clone();
+                    new_field_group.find('input').each(function(){
+                        $(this).val('');
+                    });
+                    container.append(new_field_group);
+                }
+            );
+        });
+
+        </script>
+
+<script>
+function myFunction() {
+  alert("All the information will be generated. Click on Print Button on the top right side to translate in PDF format. Thank you for using the QBR");
+}
+</script>
+
+<?php include 'php_queries/queries.php';?>
 
 </body>
 

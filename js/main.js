@@ -882,7 +882,7 @@
         type: 'bar',
         defaultFontFamily: 'GE Inspira Sans',
         data: {
-          labels: ["Ultrasound", "Rad Systems", "Mammography", "Lunar", "Vascular", "CT"],
+          labels: ["<?php echo $GET['data'];?>"],
           datasets: [
             {
               label: "Yes",
@@ -935,57 +935,6 @@
 
 
 
-
-
-  try {
-
-    //radar chart
-    var ctx = document.getElementById("radarChart");
-    if (ctx) {
-      ctx.height = 200;
-      var myChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
-          defaultFontFamily: 'GE Inspira Sans',
-          datasets: [
-            {
-              label: "My First dataset",
-              data: [65, 59, 66, 45, 56, 55, 40],
-              borderColor: "rgba(0, 123, 255, 0.6)",
-              borderWidth: "1",
-              backgroundColor: "rgba(0, 123, 255, 0.4)"
-            },
-            {
-              label: "My Second dataset",
-              data: [28, 12, 40, 19, 63, 27, 87],
-              borderColor: "rgba(0, 123, 255, 0.7",
-              borderWidth: "1",
-              backgroundColor: "rgba(0, 123, 255, 0.5)"
-            }
-          ]
-        },
-        options: {
-          legend: {
-            position: 'top',
-            labels: {
-              fontFamily: 'GE Inspira Sans'
-            }
-
-          },
-          scale: {
-            ticks: {
-              beginAtZero: true,
-              fontFamily: "GE Inspira Sans"
-            }
-          }
-        }
-      });
-    }
-
-  } catch (error) {
-    console.log(error)
-  }
 
 
 
